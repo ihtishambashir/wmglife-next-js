@@ -1,103 +1,272 @@
-import Image from "next/image";
+// app/page.js
+import Image from "next/image"
+import Link from "next/link"
+
+// export const metadata = {
+//   title: "Wealth Management Group – Insurance & Retirement",
+//   description:
+//     "Independent guidance on life, disability, long-term care, and business insurance—backed by decades of experience.",
+// }
+
+const stats = [
+  { k: "Since", v: "1991" },
+  { k: "Carriers", v: "75+" },
+  { k: "Focus", v: "Tax Strategies" },
+  { k: "Team", v: "Certified Pros" },
+]
+
+const services = [
+  {
+    title: "Life Insurance",
+    desc:
+      "Protect your family’s future with term and permanent options tailored to your goals.",
+    href: "/personalized-insurance/senior-life-insurance",
+  },
+  {
+    title: "Disability Insurance",
+    desc:
+      "Safeguard income if illness or injury keeps you from work—short and long-term options.",
+    href: "/personalized-insurance/disability-insurance-and-long-term-care",
+  },
+  {
+    title: "Long-Term Care",
+    desc:
+      "Plan for extended care needs and preserve assets while maintaining independence.",
+    href: "/personalized-insurance/disability-insurance-and-long-term-care",
+  },
+  {
+    title: "Business Insurance",
+    desc:
+      "Key-person coverage, buy-sell funding, and continuity planning for owners and partners.",
+    href: "/personalized-insurance/insurance-for-business-needs",
+  },
+]
+
+const pillars = [
+  ["Independent advice", "Recommendations aligned to your needs and budget."],
+  ["Clear explanations", "We translate complex options into plain language."],
+  ["Competitive quotes", "We compare top-rated carriers side-by-side."],
+  ["Ongoing support", "Annual reviews as your life and goals evolve."],
+]
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-white text-gray-900">
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-gray-100">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="text-xs uppercase tracking-widest text-brand-700">
+                Insurance • Retirement • Estate
+              </p>
+              <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">
+                Live for today, <span className="text-brand-700">plan for tomorrow</span>.
+              </h1>
+              <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                Straightforward guidance and competitive policies from top-rated carriers—
+                so you can move forward with confidence.
+              </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/request-a-quote"
+                  className="inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+                >
+                  Request a Quote
+                </Link>
+                <Link
+                  href="/personalized-insurance"
+                  className="inline-flex items-center rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+                >
+                  Explore Insurance
+                </Link>
+              </div>
+
+              {/* quick phone */}
+              <div className="mt-4 text-sm text-gray-600">
+                Prefer to talk?{" "}
+                <a className="text-brand-700 font-medium" href="tel:18008904525">
+                  (800) 890-4525
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/Dollarimage.jpg"
+                  alt="Family financial planning"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* TRUST / STATS */}
+      <section className="py-10 sm:py-12 lg:py-14">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {stats.map((s) => (
+              <div
+                key={s.k}
+                className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm"
+              >
+                <div className="text-2xl font-semibold text-gray-900">{s.v}</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-gray-500">
+                  {s.k}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INTRO / MISSION */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-y border-gray-100">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+              Guidance that puts clarity first
+            </h2>
+            <p className="mt-4 text-gray-700">
+              We help you understand the fundamentals of insurance, retirement planning,
+              and estate strategies—then tailor solutions to your goals and budget.
+            </p>
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              {pillars.map(([title, desc]) => (
+                <div key={title} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                  <div className="font-medium text-gray-900">{title}</div>
+                  <p className="mt-1 text-sm text-gray-600">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact CTA */}
+          <aside className="lg:col-span-5">
+            <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
+              <div className="text-lg font-semibold">Questions about coverage?</div>
+              <p className="mt-2 text-sm text-gray-600">
+                Get quick, independent guidance from our team.
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <a
+                  href="tel:18008904525"
+                  className="rounded-xl bg-brand-600 px-4 py-2 text-black text-center hover:bg-brand-700 shadow-sm"
+                >
+                  Call (800) 890-4525
+                </a>
+                <Link
+                  href="/contact"
+                  className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 text-center hover:bg-brand-50"
+                >
+                  Message Us
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* SERVICES GRID */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">
+            A complete range of insurance plans
+          </h2>
+          <p className="mt-3 text-center text-gray-700">
+            We compare leading carriers to match coverage with your needs.
+          </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s) => (
+              <Link
+                key={s.title}
+                href={s.href}
+                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+              >
+                <div className="text-lg font-semibold">{s.title}</div>
+                <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
+                <div className="mt-4 text-sm text-brand-700">
+                  Learn more <span aria-hidden>→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Secondary CTA */}
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/personalized-insurance"
+              className="rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+            >
+              Explore all options
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* “HOW WE WORK” / PROCESS */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-t border-gray-100">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">
+            What to expect
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["1. Listen", "We start with your goals, budget, and timeline."],
+              ["2. Compare", "We source competitive options from leading carriers."],
+              ["3. Explain", "Clear trade-offs so you can choose confidently."],
+              ["4. Support", "We review coverage with you over time."],
+            ].map(([t, d]) => (
+              <div key={t} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="font-medium text-gray-900">{t}</div>
+                <p className="mt-1 text-sm text-gray-600">{d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/request-a-quote"
+              className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+            >
+              Request a free quote
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER CTA */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+            Ready to get started?
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Get the best coverage at the best price—backed by independent advice.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/request-a-quote"
+              className="rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+            >
+              Get a Quote
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
