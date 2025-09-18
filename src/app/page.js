@@ -54,9 +54,13 @@ export default function Home() {
     <div className="bg-white text-gray-900">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-gray-100">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(79,70,229,0.07),transparent_40%),radial-gradient(circle_at_85%_15%,rgba(129,140,248,0.06),transparent_35%)]"
+        />
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-center">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 fade-in-up">
               <p className="text-xs uppercase tracking-widest text-brand-700">
                 Insurance • Retirement • Estate
               </p>
@@ -71,13 +75,13 @@ export default function Home() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/request-a-quote"
-                  className="inline-flex items-center rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+                  className="btn btn-primary"
                 >
                   Request a Quote
                 </Link>
                 <Link
                   href="/personalized-insurance"
-                  className="inline-flex items-center rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+                  className="btn btn-outline"
                 >
                   Explore Insurance
                 </Link>
@@ -92,7 +96,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 fade-in-up">
               <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/Dollarimage.jpg"
@@ -114,7 +118,7 @@ export default function Home() {
             {stats.map((s) => (
               <div
                 key={s.k}
-                className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm"
+                className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm hover-lift"
               >
                 <div className="text-2xl font-semibold text-gray-900">{s.v}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-gray-500">
@@ -157,13 +161,13 @@ export default function Home() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <a
                   href="tel:18008904525"
-                  className="rounded-xl bg-brand-600 px-4 py-2 text-black text-center hover:bg-brand-700 shadow-sm"
+                  className="btn btn-primary"
                 >
                   Call (800) 890-4525
                 </a>
                 <Link
                   href="/contact"
-                  className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 text-center hover:bg-brand-50"
+                  className="btn btn-outline"
                 >
                   Message Us
                 </Link>
@@ -188,7 +192,7 @@ export default function Home() {
               <Link
                 key={s.title}
                 href={s.href}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition hover-lift"
               >
                 <div className="text-lg font-semibold">{s.title}</div>
                 <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
@@ -203,7 +207,7 @@ export default function Home() {
           <div className="mt-12 flex justify-center">
             <Link
               href="/personalized-insurance"
-              className="rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+              className="btn btn-primary"
             >
               Explore all options
             </Link>
@@ -224,7 +228,7 @@ export default function Home() {
               ["3. Explain", "Clear trade-offs so you can choose confidently."],
               ["4. Support", "We review coverage with you over time."],
             ].map(([t, d]) => (
-              <div key={t} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+              <div key={t} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover-lift">
                 <div className="font-medium text-gray-900">{t}</div>
                 <p className="mt-1 text-sm text-gray-600">{d}</p>
               </div>
@@ -234,7 +238,7 @@ export default function Home() {
           <div className="mt-10 flex justify-center">
             <Link
               href="/request-a-quote"
-              className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+              className="btn btn-outline"
             >
               Request a free quote
             </Link>
@@ -254,13 +258,13 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               href="/request-a-quote"
-              className="rounded-xl bg-brand-600 px-4 py-2 text-black hover:bg-brand-700 shadow-sm"
+              className="btn btn-primary"
             >
               Get a Quote
             </Link>
             <Link
               href="/contact"
-              className="rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+              className="btn btn-outline"
             >
               Contact Us
             </Link>

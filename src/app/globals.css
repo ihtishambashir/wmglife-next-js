@@ -10,6 +10,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand palette (indigo) */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand: var(--color-brand-600);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +35,55 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Design tokens and utilities */
+@layer utilities {
+  /* Layout helpers */
+  .container-narrow { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-12 sm:py-16 lg:py-20 bg-white; }
+  .h { @apply text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900; }
+
+  /* Navigation link with subtle underline on hover */
+  .nav-link {
+    @apply relative text-sm text-gray-700 hover:text-brand transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/30;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+    opacity: 0.5;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after { transform: scaleX(1); }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/30 disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-600 to-brand-500 text-white hover:from-brand-500 hover:to-brand-400;
+  }
+  .btn-outline {
+    @apply border border-brand-600 text-brand-700 hover:bg-brand-50;
+  }
+
+  /* Cards and interactions */
+  .card { @apply rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md; }
+  .hover-lift { @apply transition-transform will-change-transform hover:-translate-y-0.5; }
+
+  /* Simple entry animation */
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in-up { animation: fade-in-up .6s cubic-bezier(.22,1,.36,1) both; }
 }

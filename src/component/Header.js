@@ -48,7 +48,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand/30 rounded-lg"
         >
-          <div className="h-10 w-10 rounded-full bg-brand" />
+          <div className="h-10 w-10 rounded-full bg-gradient-to-tr from-brand-600 to-brand-400 shadow-inner" />
           <span className="text-xl font-semibold tracking-tight text-brand">
             Wealth Management Group
           </span>
@@ -104,8 +104,8 @@ export default function Header() {
             {/* Dropdown panel */}
             <div
               className={clsx(
-                'absolute left-1/2 top-full z-50 mt-2 w-[22rem] -translate-x-1/2 rounded-xl border border-gray-200 bg-white p-2 shadow-lg transition-opacity',
-                hoverOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                'absolute left-1/2 top-full z-50 mt-2 w-[22rem] -translate-x-1/2 rounded-xl border border-gray-200 bg-white p-2 shadow-lg transition-all duration-200',
+                hoverOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none translate-y-1'
               )}
               role="menu"
             >

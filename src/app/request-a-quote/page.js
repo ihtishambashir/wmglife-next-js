@@ -86,7 +86,7 @@ export default function RequestAQuotePage() {
       <section className="border-b border-gray-100">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-start">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 fade-in-up">
               <p className="text-xs uppercase tracking-widest text-brand-700">Request a Quote</p>
               <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">
                 Tell us about your coverage needs
@@ -102,7 +102,7 @@ export default function RequestAQuotePage() {
               <div className="mt-6">
                 <Link
                   href="/personalized-insurance"
-                  className="inline-flex items-center rounded-xl border border-brand-600 px-4 py-2 text-brand-700 hover:bg-brand-50"
+                  className="btn btn-outline"
                 >
                   Explore coverage types
                 </Link>
@@ -110,7 +110,7 @@ export default function RequestAQuotePage() {
             </div>
 
             {/* Office card (from site) */}
-            <aside className="lg:col-span-5">
+            <aside className="lg:col-span-5 fade-in-up">
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
                 <div className="text-lg font-semibold">Office & Hours</div>
                 <dl className="mt-4 space-y-3 text-sm text-gray-700">
@@ -269,7 +269,7 @@ export default function RequestAQuotePage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 font-medium text-black shadow-sm hover:bg-brand-700 disabled:opacity-60"
+                  className="btn btn-primary"
                 >
                   {loading ? 'Sending…' : 'Send request'}
                 </button>
