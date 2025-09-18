@@ -84,7 +84,7 @@ export default function RequestAQuotePage() {
     <div className="bg-white text-gray-900">
       {/* Hero */}
       <section className="border-b border-gray-100">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7 fade-in-up">
               <p className="text-xs uppercase tracking-widest text-brand-700">Request a Quote</p>
@@ -112,7 +112,7 @@ export default function RequestAQuotePage() {
             {/* Office card (from site) */}
             <aside className="lg:col-span-5 fade-in-up">
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
-                <div className="text-lg font-semibold">Office & Hours</div>
+              <h2 className="text-lg font-semibold text-[#6569f2]">Office & Hours</h2>
                 <dl className="mt-4 space-y-3 text-sm text-gray-700">
                   <div>
                     <dt className="font-medium text-gray-900">Address</dt>
@@ -142,7 +142,7 @@ export default function RequestAQuotePage() {
 
       {/* Quote form */}
       <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6 lg:p-8">
             <h2 className="text-xl font-semibold">Your information</h2>
             <p className="mt-1 text-sm text-gray-600">

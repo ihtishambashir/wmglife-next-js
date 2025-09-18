@@ -1,12 +1,5 @@
-// app/page.js
 import Image from "next/image"
 import Link from "next/link"
-
-// export const metadata = {
-//   title: "Wealth Management Group – Insurance & Retirement",
-//   description:
-//     "Independent guidance on life, disability, long-term care, and business insurance—backed by decades of experience.",
-// }
 
 const stats = [
   { k: "Since", v: "1991" },
@@ -58,7 +51,7 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(79,70,229,0.07),transparent_40%),radial-gradient(circle_at_85%_15%,rgba(129,140,248,0.06),transparent_35%)]"
         />
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-center">
             <div className="lg:col-span-7 fade-in-up">
               <p className="text-xs uppercase tracking-widest text-brand-700">
@@ -113,7 +106,7 @@ export default function Home() {
 
       {/* TRUST / STATS */}
       <section className="py-10 sm:py-12 lg:py-14">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {stats.map((s) => (
               <div
@@ -132,15 +125,17 @@ export default function Home() {
 
       {/* INTRO / MISSION */}
       <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-y border-gray-100">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-7">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-              Guidance that puts clarity first
-            </h2>
-            <p className="mt-4 text-gray-700">
-              We help you understand the fundamentals of insurance, retirement planning,
-              and estate strategies—then tailor solutions to your goals and budget.
-            </p>
+        <div className="container-narrow grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                Guidance that puts clarity first
+              </h2>
+              <p className="mt-4 text-gray-700">
+                We help you understand the fundamentals of insurance, retirement planning,
+                and estate strategies—then tailor solutions to your goals and budget.
+              </p>
+            </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {pillars.map(([title, desc]) => (
                 <div key={title} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
@@ -152,26 +147,37 @@ export default function Home() {
           </div>
 
           {/* Contact CTA */}
-          <aside className="lg:col-span-5">
-            <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
-              <div className="text-lg font-semibold">Questions about coverage?</div>
-              <p className="mt-2 text-sm text-gray-600">
-                Get quick, independent guidance from our team.
-              </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <aside className="lg:col-span-5 flex flex-col justify-between">
+            <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-xl font-semibold">Questions about coverage?</div>
+                <p className="mt-3 text-base text-gray-600">
+                  Get quick, independent guidance from our team.
+                </p>
+                <p className="mt-2 text-sm text-gray-600">
+                  Our experts are available to assist you with any inquiries you may have about our insurance plans and services.
+                </p>
+              </div>
+              <div className="mt-5">
+                <p className="text-sm text-gray-600">
+                  We are committed to providing you with the best service possible. Don't hesitate to reach out!
+                </p>
+              </div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <a
                   href="tel:18008904525"
-                  className="btn btn-primary"
+                  className="btn btn-primary text-lg"
                 >
                   Call (800) 890-4525
                 </a>
                 <Link
                   href="/contact"
-                  className="btn btn-outline"
+                  className="btn btn-outline text-lg"
                 >
                   Message Us
                 </Link>
               </div>
+              
             </div>
           </aside>
         </div>
@@ -179,7 +185,7 @@ export default function Home() {
 
       {/* SERVICES GRID */}
       <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">
             A complete range of insurance plans
           </h2>
@@ -217,7 +223,7 @@ export default function Home() {
 
       {/* “HOW WE WORK” / PROCESS */}
       <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-t border-gray-100">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center">
             What to expect
           </h2>
@@ -248,7 +254,7 @@ export default function Home() {
 
       {/* FOOTER CTA */}
       <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container-narrow text-center">
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
             Ready to get started?
           </h2>

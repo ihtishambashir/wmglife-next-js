@@ -52,7 +52,7 @@ export default function ContactUsPage() {
     <div className="bg-white">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-gray-100">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="container-narrow">
           <div className="py-12 sm:py-16 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 fade-in-up">
               <p className="text-xs uppercase tracking-widest text-brand-700">
@@ -84,7 +84,7 @@ export default function ContactUsPage() {
             {/* Quick contact card */}
             <div className="lg:col-span-5 fade-in-up">
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
-                <h2 className="text-lg font-semibold">Office & Hours</h2>
+                <h2 className="text-lg font-semibold text-[#6569f2]">Office & Hours</h2>
                 <dl className="mt-4 space-y-3 text-sm text-gray-700">
                   <div>
                     <dt className="font-medium text-gray-900">Address</dt>
@@ -114,10 +114,10 @@ export default function ContactUsPage() {
 
       {/* Contact form + Map */}
       <section className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+        <div className="container-narrow grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7">
             <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
-              <h2 id="contact-form" className="text-xl font-semibold">
+              <h2 id="contact-form" className="text-xl font-semibold text-[#6569f2]">
                 Send us a message
               </h2>
               <p className="mt-2 text-sm text-gray-600">
@@ -234,32 +234,14 @@ export default function ContactUsPage() {
                 src="https://www.google.com/maps?q=1101%20Brickell%20Ave%20Suite%20800%2C%20Miami%2C%20FL%2033131&output=embed"
               />
             </div>
-
-            {/* Alternative contact methods */}
-            <div className="mt-6 grid sm:grid-cols-2 gap-4">
-              <a
-                href="tel:18008904525"
-                className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow hover-lift"
-              >
-                <div className="text-sm font-semibold text-gray-900">Call</div>
-                <div className="mt-1 text-sm text-gray-600">(800) 890-4525</div>
-              </a>
-              <a
-                href="mailto:info@wmglife.com"
-                className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow hover-lift"
-              >
-                <div className="text-sm font-semibold text-gray-900">Email</div>
-                <div className="mt-1 text-sm text-gray-600">info@wmglife.com</div>
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ / “What to expect” */}
       <section className="bg-slate-50 py-12 sm:py-16">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-semibold">What happens after you reach out?</h2>
+        <div className="container-narrow">
+          <h2 className="text-xl font-semibold text-[#6569f2]">What happens after you reach out?</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               ['We listen first', 'We’ll ask about goals, budget, and timeline.'],

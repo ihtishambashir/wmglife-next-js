@@ -99,7 +99,7 @@ export default function PersonalizedInsurancePage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(59,130,246,0.08),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.08),transparent_35%)]"
         />
-        <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <div className="container-narrow max-w-6xl py-12 md:py-16">
           <nav aria-label="Breadcrumb" className="text-sm text-gray-500">
             <ol className="flex items-center gap-2">
               <li>
@@ -123,7 +123,7 @@ export default function PersonalizedInsurancePage() {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href="/request-a-quote" className="btn btn-primary">
+              <Link href="/request-a-quote" className="btn btn-primary font-bold">
                 Request a Quote
               </Link>
               <Link href="/contact" className="btn border border-gray-300 hover:bg-gray-50">
@@ -136,7 +136,7 @@ export default function PersonalizedInsurancePage() {
 
       {/* BENEFITS STRIP */}
       <section aria-label="Why choose us" className="border-y border-gray-100 bg-white">
-        <div className="container mx-auto max-w-6xl px-4 py-6 md:py-8">
+        <div className="container-narrow max-w-6xl py-6 md:py-8">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               ['Tailored guidance', 'Plans aligned with your goals'],
@@ -158,7 +158,7 @@ export default function PersonalizedInsurancePage() {
 
       {/* GRID CARDS */}
       <section className="bg-white">
-        <div className="container mx-auto max-w-6xl px-4 py-12 md:py-14">
+        <div className="container-narrow max-w-6xl py-12 md:py-14">
           <div className="grid gap-6 sm:grid-cols-2">
             {items.map((i) => (
               <Link
@@ -201,7 +201,7 @@ export default function PersonalizedInsurancePage() {
 
       {/* FAQ */}
       <section className="bg-gray-50 border-t border-gray-100">
-        <div className="container mx-auto max-w-3xl px-4 py-12 md:py-14">
+        <div className="container-narrow max-w-3xl py-12 md:py-14">
           <h2 className="text-2xl font-bold text-gray-900">Frequently Asked Questions</h2>
           <div className="mt-6 space-y-4">
             <details className="group rounded-xl border border-gray-200 bg-white p-4 open:shadow-sm">
@@ -244,7 +244,7 @@ export default function PersonalizedInsurancePage() {
 
       {/* BOTTOM CTA */}
       <section className="bg-white">
-        <div className="container mx-auto max-w-6xl px-4 py-10 md:py-12">
+        <div className="container-narrow max-w-6xl py-10 md:py-12">
           <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-gray-200 bg-gradient-to-r from-brand/5 to-emerald-50 p-6 md:flex-row md:items-center">
             <div>
               <h3 className="text-xl font-semibold text-gray-900">Ready to personalize your coverage?</h3>
