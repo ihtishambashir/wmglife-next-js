@@ -5,6 +5,33 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import { Metadata } from 'next';
 import clsx from 'clsx';
+const Icons = {
+  shield: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M12 2 20 6v5c0 5.5-3.8 9.8-8 11-4.2-1.2-8-5.5-8-11V6l8-4Z" />
+    </svg>
+  ),
+  briefcase: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M9 7V5a3 3 0 0 1 6 0v2" />
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M3 12h18" />
+    </svg>
+  ),
+  clipboard: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <rect x="7" y="6" width="10" height="14" rx="2" />
+      <path d="M9.5 6h5A1.5 1.5 0 0 0 16 4.5 1.5 1.5 0 0 0 14.5 3h-5A1.5 1.5 0 0 0 8 4.5 1.5 1.5 0 0 0 9.5 6Z" />
+      <path d="M10 11h6M10 15h6" />
+    </svg>
+  ),
+  user: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+    </svg>
+  ),
+};
 
 /** Optional (App Router): export metadata for SEO */
 // export const metadata: Metadata = {
@@ -25,25 +52,25 @@ const items = [
     href: '/personalized-insurance/disability-insurance-and-long-term-care',
     title: 'Disability Insurance & Long-Term Care',
     desc: 'Safeguard income and plan ahead for extended care.',
-    icon: '🛡️',
+    icon: 'shield',
   },
   {
     href: '/personalized-insurance/insurance-for-business-needs',
     title: 'Insurance for Business Needs',
     desc: 'Protect key people, partners, and continuity.',
-    icon: '🏢',
+    icon: 'briefcase',
   },
   {
     href: '/personalized-insurance/new-and-exsisting-coverage',
     title: 'New & Existing Coverage',
     desc: 'Review current policies or start fresh with competitive options.',
-    icon: '📋',
+    icon: 'clipboard',
   },
   {
     href: '/personalized-insurance/senior-life-insurance',
     title: 'Senior Life Insurance',
     desc: 'Affordable, straightforward coverage designed for peace of mind.',
-    icon: '👵',
+    icon: 'user',
   },
 ];
 
@@ -100,23 +127,23 @@ export default function PersonalizedInsurancePage() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(59,130,246,0.08),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.08),transparent_35%)]"
         />
         <div className="container-narrow max-w-6xl py-12 md:py-16">
-          <nav aria-label="Breadcrumb" className="text-sm text-gray-500">
+          <nav aria-label="Breadcrumb" className="text-sm text-white/70">
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand/30 rounded">
+                <Link href="/" className="text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand/30 rounded">
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-gray-900 font-medium">Personalized Insurance</li>
+              <li className="text-white font-medium">Personalized Insurance</li>
             </ol>
           </nav>
 
           <div className="mt-6 md:mt-8">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
               Personalized Insurance
             </h1>
-            <p className="mt-3 max-w-2xl text-base md:text-lg text-gray-700">
+            <p className="mt-3 max-w-2xl text-base md:text-lg text-white/80">
               Explore focused solutions tailored to your stage of life and goals. Whether
               you’re reviewing existing policies or planning for future needs, we’ll help
               you choose with confidence.
@@ -169,7 +196,10 @@ export default function PersonalizedInsurancePage() {
                 )}
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-2xl" aria-hidden="true">{i.icon}</span>
+                  {(() => {
+                    const Icon = Icons[i.icon] || Icons.shield;
+                    return <Icon className="mt-0.5 h-8 w-8 text-brand" />;
+                  })()}
                   <div>
                     <h2 className="text-lg font-semibold text-gray-900 group-hover:text-brand">
                       {i.title}
