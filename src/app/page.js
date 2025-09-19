@@ -1,5 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
+import Reveal from "@/component/motion/Reveal"
+import Counter from "@/component/motion/Counter"
 
 const stats = [
   { k: "Since", v: "1991" },
@@ -43,6 +45,20 @@ const pillars = [
 ]
 
 export default function Home() {
+  function renderStatValue(v) {
+    const str = String(v)
+    const m = str.match(/^(\D*)(\d+(?:\.\d+)?)(\D*)$/)
+    if (!m) return str
+    const [, prefix, num, suffix] = m
+    const to = parseFloat(num)
+    return (
+      <>
+        {prefix}
+        <Counter to={to} duration={900} />
+        {suffix}
+      </>
+    )
+  }
   return (
     <div className="bg-white text-gray-900">
       {/* HERO */}
@@ -53,7 +69,7 @@ export default function Home() {
         />
         <div className="container-narrow">
           <div className="py-12 sm:py-16 lg:py-20 grid gap-10 lg:grid-cols-12 items-center">
-            <div className="lg:col-span-7 fade-in-up">
+            <Reveal from="left" className="lg:col-span-7">
               <p className="text-xs uppercase tracking-widest text-brand-700">
                 Insurance • Retirement • Estate
               </p>
@@ -87,9 +103,9 @@ export default function Home() {
                   (800) 890-4525
                 </a>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-5 fade-in-up">
+            <Reveal from="right" className="lg:col-span-5">
               <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/Dollarimage.jpg"
@@ -99,7 +115,7 @@ export default function Home() {
                   priority
                 />
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -108,16 +124,17 @@ export default function Home() {
       <section className="py-10 sm:py-12 lg:py-14">
         <div className="container-narrow">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {stats.map((s) => (
-              <div
+            {stats.map((s, i) => (
+              <Reveal
                 key={s.k}
+                from={i % 2 === 0 ? 'left' : 'right'}
                 className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm hover-lift"
               >
-                <div className="text-2xl font-semibold text-gray-900">{s.v}</div>
+                <div className="text-2xl font-semibold text-gray-900">{renderStatValue(s.v)}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-gray-500">
                   {s.k}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -126,7 +143,7 @@ export default function Home() {
       {/* INTRO / MISSION */}
       <section className="py-12 sm:py-16 lg:py-20 bg-slate-50 border-y border-gray-100">
         <div className="container-narrow grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-7 flex flex-col justify-between">
+          <Reveal from="left" className="lg:col-span-7 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
                 Guidance that puts clarity first
@@ -144,10 +161,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Contact CTA */}
-          <aside className="lg:col-span-5 flex flex-col justify-between">
+          <Reveal from="right" className="lg:col-span-5 flex flex-col justify-between">
             <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6 h-full flex flex-col justify-between">
               <div>
                 <div className="text-xl font-semibold">Questions about coverage?</div>
@@ -179,7 +196,7 @@ export default function Home() {
               </div>
               
             </div>
-          </aside>
+          </Reveal>
         </div>
       </section>
 
@@ -194,18 +211,19 @@ export default function Home() {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s) => (
-              <Link
-                key={s.title}
-                href={s.href}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition hover-lift"
-              >
-                <div className="text-lg font-semibold">{s.title}</div>
-                <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
-                <div className="mt-4 text-sm text-brand-700">
-                  Learn more <span aria-hidden>→</span>
-                </div>
-              </Link>
+            {services.map((s, i) => (
+              <Reveal key={s.title} from={i % 2 === 0 ? 'left' : 'right'} className="h-full">
+                <Link
+                  href={s.href}
+                  className="group block h-full rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition hover-lift"
+                >
+                  <div className="text-lg font-semibold">{s.title}</div>
+                  <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
+                  <div className="mt-4 text-sm text-brand-700">
+                    Learn more <span aria-hidden>→</span>
+                  </div>
+                </Link>
+              </Reveal>
             ))}
           </div>
 
@@ -233,11 +251,11 @@ export default function Home() {
               ["2. Compare", "We source competitive options from leading carriers."],
               ["3. Explain", "Clear trade-offs so you can choose confidently."],
               ["4. Support", "We review coverage with you over time."],
-            ].map(([t, d]) => (
-              <div key={t} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover-lift">
+            ].map(([t, d], i) => (
+              <Reveal key={t} from={i % 2 === 0 ? 'left' : 'right'} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover-lift">
                 <div className="font-medium text-gray-900">{t}</div>
                 <p className="mt-1 text-sm text-gray-600">{d}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
 

@@ -98,3 +98,13 @@ body {
   .on-dark .nav-link { @apply text-white; }
   .on-dark .btn-outline { @apply border-white/50 text-white hover:bg-white/10; }
 }
+
+/* Respect reduced motion: disable heavy animations/transitions globally */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

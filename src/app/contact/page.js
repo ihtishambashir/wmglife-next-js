@@ -2,6 +2,7 @@
 'use client'
 
 import { useState } from 'react'
+import Reveal from '@/component/motion/Reveal'
 
 // export const metadata = {
 //   title: 'Contact Us',
@@ -54,7 +55,7 @@ export default function ContactUsPage() {
       <section className="relative overflow-hidden border-b border-gray-100">
         <div className="container-narrow">
           <div className="py-12 sm:py-16 lg:py-20 grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 fade-in-up">
+            <Reveal from="left" className="lg:col-span-7">
               <p className="text-xs uppercase tracking-widest text-brand-700">
                 Insurance & Retirement Guidance
               </p>
@@ -79,10 +80,10 @@ export default function ContactUsPage() {
                   Message Us
                 </a>
               </div>
-            </div>
+            </Reveal>
 
             {/* Quick contact card */}
-            <div className="lg:col-span-5 fade-in-up">
+            <Reveal from="right" className="lg:col-span-5">
               <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6">
                 <h2 className="text-lg font-semibold text-[#6569f2]">Office & Hours</h2>
                 <dl className="mt-4 space-y-3 text-sm text-gray-700">
@@ -107,7 +108,7 @@ export default function ContactUsPage() {
                   Info as listed on the current site.
                 </p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -248,11 +249,11 @@ export default function ContactUsPage() {
               ['Clear options', 'We translate policy types and trade-offs.'],
               ['Competitive quotes', 'We compare carriers and pricing.'],
               ['Ongoing support', 'Annual reviews to keep coverage aligned.'],
-            ].map(([title, desc]) => (
-              <div key={title} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+            ].map(([title, desc], i) => (
+              <Reveal key={title} from={i % 2 === 0 ? 'left' : 'right'} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
                 <div className="font-medium text-gray-900">{title}</div>
                 <p className="mt-1 text-sm text-gray-600">{desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
