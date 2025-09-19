@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import heroImage from "@/images/Dollarimage.jpg"
 import Reveal from "@/component/motion/Reveal"
 import Counter from "@/component/motion/Counter"
 
@@ -108,7 +109,7 @@ export default function Home() {
             <Reveal from="right" className="lg:col-span-5">
               <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/Dollarimage.jpg"
+                  src={heroImage}
                   alt="Family financial planning"
                   fill
                   className="object-cover"
