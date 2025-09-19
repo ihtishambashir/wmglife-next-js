@@ -57,7 +57,7 @@ export default function Page() {
             </p>
             <div className="mt-6 flex gap-3">
               <Link href="/request-a-quote" className="btn btn-primary">Start My Review</Link>
-              <Link href="/contact" className="btn border border-gray-300 hover:bg-gray-50">Talk to an Advisor</Link>
+              <Link href="/contact" className="btn border border-gray-300 hover:bg-gray-50 text-gray-900">Talk to an Advisor</Link>
             </div>
           </div>
           <div className="lg:col-span-6">
