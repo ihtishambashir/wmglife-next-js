@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Page() {
   const solutions = [
@@ -72,7 +73,7 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:col-span-6">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
               alt="Team in strategy meeting"
               className="w-full rounded-2xl object-cover aspect-[16/10] sm:aspect-[16/9]"

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Page() {
   const diPlans = [
@@ -109,7 +110,7 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:col-span-6">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1549842175-1a1173dd3b48?q=80&w=1200&auto=format&fit=crop"
               alt="Care planning discussion with advisor"
               className="w-full rounded-2xl object-cover aspect-[16/10] sm:aspect-[16/9]"

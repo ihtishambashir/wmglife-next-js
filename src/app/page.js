@@ -15,7 +15,7 @@ const services = [
   {
     title: "Life Insurance",
     desc:
-      "Protect your family’s future with term and permanent options tailored to your goals.",
+      "Protect your family future with term and permanent options tailored to your goals.",
     href: "/personalized-insurance/senior-life-insurance",
   },
   {
@@ -178,7 +178,7 @@ export default function Home() {
               </div>
               <div className="mt-5">
                 <p className="text-sm text-gray-600">
-                  We are committed to providing you with the best service possible. Don't hesitate to reach out!
+                  We are committed to providing you with the best service possible. Don&apos;t hesitate to reach out!
                 </p>
               </div>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">

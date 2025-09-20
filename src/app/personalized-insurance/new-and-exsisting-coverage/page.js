@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page() {
@@ -61,7 +61,7 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:col-span-6">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
               alt="Reviewing coverage and documents"
               className="w-full rounded-2xl object-cover aspect-[16/10] sm:aspect-[16/9]"
