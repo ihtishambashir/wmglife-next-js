@@ -14,6 +14,8 @@ export default function ContactUsPage() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'meolyzlw'
+  const formspreeEndpoint = `https://formspree.io/f/${formspreeId}`
 
   async function onSubmit(e) {
     e.preventDefault()
@@ -28,20 +30,36 @@ export default function ContactUsPage() {
       return
     }
 
-    // Gather form data — replace with your API route or email service
+    // Gather form data for Formspree
     const payload = {
       name: e.currentTarget.name.value.trim(),
       phone: e.currentTarget.phone.value.trim(),
       email: e.currentTarget.email.value.trim(),
       message: e.currentTarget.message.value.trim(),
       source: 'contact-page',
+      _subject: 'New Contact Message',
     }
 
     try {
-      // TODO: POST to /api/contact or your SMTP/Mail provider
-      // await fetch('/api/contact', { method:'POST', body: JSON.stringify(payload) })
-      await new Promise((r) => setTimeout(r, 700)) // demo latency
-      setSent(true)
+      const res = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (res.ok) {
+        setSent(true)
+        return
+      }
+      const data = await res.json().catch(() => null)
+      if (data && data.errors && data.errors.length) {
+        setError(data.errors.map((e) => e.message).join(' '))
+      } else {
+        setError('Sorry, something went wrong. Please try again.')
+      }
     } catch (err) {
       setError('Sorry, something went wrong. Please try again.')
     } finally {
